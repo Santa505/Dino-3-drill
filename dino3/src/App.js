@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import jobdetails from "./components/jobdetails";
-import inputform from "./components/inputform";
+import JobDetails from "./components/JobDetails";
+import InputForm from "./components/InputForm";
 
 
 class App extends Component {
@@ -12,6 +11,7 @@ class App extends Component {
     super(props)
     this.state = {
       listings:[],
+
     }
   }
   componentDidMount() {
@@ -23,13 +23,15 @@ class App extends Component {
       })
     })
   }
+  
   render() {
+    console.log(this.state)
     return (
       <div className="App">
       <Header />
       <main>
-        <Jobdetails listings={this.state.jobs} />
-        <Inputform submitJobListing={this.submitJobListing}/>
+        <JobDetails listings={this.state.listings} /> 
+        <InputForm submitJobListing={this.submitJobListing} />
       </main>
       
       <Footer />
